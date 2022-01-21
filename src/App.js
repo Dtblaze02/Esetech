@@ -29,9 +29,9 @@ class App extends Component{
     return (
       <div className="row container">
         <div className='col-lg-5'>
-            <div class="card text-center">      
+            <div class="card text-center" style={{background:'#182c47'}}>      
               <div class="card-body">
-                <h5 class="card-title">Search Movies</h5>
+                <h5 class="card-title" style={{color:'#c1d1e8'}} >Filter Results</h5>
                 <input type = 'search' placeholder='Search Movie' onChange={e=>this.setState({searchField: e.target.value})}/>    
               </div>
             </div>
