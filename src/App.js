@@ -27,7 +27,7 @@ class App extends Component{
       )
 
     return (
-      <div className="row container">
+      <div className="row container mt-5">
         <div className='col-lg-5'>
             <div class="card text-center" style={{background:'#182c47'}}>      
               <div class="card-body">
