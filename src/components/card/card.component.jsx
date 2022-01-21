@@ -1,6 +1,10 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.css';
 
+const truncate = (str) => {
+    return str.length > 100 ? str.substring(0, 50) + "..." : str;
+}
+
 export const Card = (props) => (
     <div className="card mb-3">
   <div className="row no-gutters">
@@ -9,9 +13,11 @@ export const Card = (props) => (
       <div className="card-body">
         <h5 className="card-title">{props.movie.name}</h5>
         <p className="card-text"><small className="text-muted">Release Date: {props.movie.first_release_date}</small></p>
-        <p className="card-text">{props.movie.summary}</p>        
+        <p className="card-text">{truncate(props.movie.summary)}</p>        
       </div>
     </div>
   </div>
 </div>
+
 )
+
