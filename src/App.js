@@ -1,25 +1,47 @@
-import logo from './logo.svg';
+import React, {Component} from 'react'
 import './App.css';
+import {CardList} from './components/card-list/card-list.component'
+//import SearchBox from './components/search-box/search-box.component';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component{
+  constructor(){
+    super();
+  
+    this.state = {
+      movies:[ ],
+      searchField: ''
+    }
+  }
+
+  componentDidMount(){
+    fetch('https://adaorachi.github.io/esetech-assessment-api/game-data.json')
+    .then(response => response.json())
+    .then(movie => this.setState({movies:movie}))
+  }
+
+  render(){
+
+    const{movies, searchField} = this.state;
+    const filteredMovies = movies.filter(movie=>
+      movie.name.toLowerCase().includes(searchField.toLocaleLowerCase())
+      )
+
+    return (
+      <div className="row container">
+        <div className='col-lg-5'>
+            <div class="card text-center">      
+              <div class="card-body">
+                <h5 class="card-title">Search Movies</h5>
+                <input type = 'search' placeholder='Search Movie' onChange={e=>this.setState({searchField: e.target.value})}/>    
+              </div>
+            </div>
+        </div>
+        <div className='col-lg-7'>
+          <CardList movies ={filteredMovies}></CardList>
+        </div>        
+      </div>
+    );
+  }
 }
 
 export default App;
