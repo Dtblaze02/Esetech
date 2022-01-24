@@ -22,7 +22,7 @@ class App extends Component{
   render(){
 
     const{games, searchField} = this.state;
-    const filteredgames = games.filter(game=>
+    const filteredGames = games.filter(game=>
       game.name.toLowerCase().includes(searchField.toLocaleLowerCase())
       )
 
@@ -37,7 +37,7 @@ class App extends Component{
             </div>
         </div>
         <div className='col-lg-7'>
-          <CardList games ={filteredgames}></CardList>
+          <CardList games ={filteredGames}></CardList>
         </div>        
       </div>
     );
