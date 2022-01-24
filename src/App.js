@@ -8,7 +8,7 @@ class App extends Component{
     super();
   
     this.state = {
-      movies:[ ],
+      games:[ ],
       searchField: ''
     }
   }
@@ -16,14 +16,14 @@ class App extends Component{
   componentDidMount(){
     fetch('https://adaorachi.github.io/esetech-assessment-api/game-data.json')
     .then(response => response.json())
-    .then(movie => this.setState({movies:movie}))
+    .then(game => this.setState({games:game}))
   }
 
   render(){
 
-    const{movies, searchField} = this.state;
-    const filteredMovies = movies.filter(movie=>
-      movie.name.toLowerCase().includes(searchField.toLocaleLowerCase())
+    const{games, searchField} = this.state;
+    const filteredgames = games.filter(game=>
+      game.name.toLowerCase().includes(searchField.toLocaleLowerCase())
       )
 
     return (
@@ -32,12 +32,12 @@ class App extends Component{
             <div class="card text-center" style={{background:'#182c47'}}>      
               <div class="card-body">
                 <h5 class="card-title" style={{color:'#c1d1e8'}} >Filter Results</h5>
-                <input type = 'search' placeholder='Search Movie' onChange={e=>this.setState({searchField: e.target.value})}/>    
+                <input type = 'search' placeholder='Search game' onChange={e=>this.setState({searchField: e.target.value})}/>    
               </div>
             </div>
         </div>
         <div className='col-lg-7'>
-          <CardList movies ={filteredMovies}></CardList>
+          <CardList games ={filteredgames}></CardList>
         </div>        
       </div>
     );
