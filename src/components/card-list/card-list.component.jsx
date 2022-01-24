@@ -5,9 +5,9 @@ export const CardList = (props) => (
 
         <div className = "">
             {
-             props.movies.map(movie => (
+             props.games.map(game => (
                <div>
-                 <Card key = {movie.id} movie={movie}/>
+                 <Card key = {game.id} game={game}/>
                </div>          
             )
           )
