@@ -32,7 +32,7 @@ class App extends Component{
             <div class="card text-center" style={{background:'#182c47'}}>      
               <div class="card-body">
                 <h5 class="card-title" style={{color:'#c1d1e8'}} >Filter Results</h5>
-                <input type = 'search' placeholder='Search game' onChange={e=>this.setState({searchField: e.target.value})}/>    
+                <input type = 'search' placeholder='Search Game' onChange={e=>this.setState({searchField: e.target.value})}/>    
               </div>
             </div>
         </div>
